@@ -9,7 +9,7 @@ A mini viewer of the GitHub application for source code, organizations, reposito
 
 ## Description
 
-> Finding good places in your city can sometimes be challenging. Let us help you search along with Google Maps to find you the right spot! Search by zip code, latitude and longitude, or wander off to new territories. Save them as you go on your browser and manage all the interesting places you accumulate.
+> A mini viewer of the GitHub application for source code, organizations, repositories, and users. Built on Angular 4 and MaterializeCSS. View and search users and their contributed content on GitHub, see recent commits made by users along with the repo and their user profile.  See all organizations and subscriptions that user has, check out the users followers and see their content as well.
 
 ## Features
 
