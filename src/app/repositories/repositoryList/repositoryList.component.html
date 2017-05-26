@@ -1,0 +1,65 @@
+<div class="row">
+  <div class="col s12">
+    <h3>Repositories</h3>
+  </div>
+</div>
+
+
+<div class="max-width">
+
+  <div class="row">
+    <div class="col s12">
+      <h3>Search:</h3>
+      <p>
+        <input type="text" placeholder="Search Repositories" maxlength="20" [(ngModel)]="search.repo" (keyup.enter)="searchRepo(search)" (blur)="searchRepo(search)" />
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s12 m12 l12">
+
+      <div class="repoListData">
+
+        <div class="col s12 m12 l6" *ngFor="let repo of repos; let i = index">
+          <div class="card hoverable">
+            <div class="card-content" (click)="repoDetails(repo)">
+
+              <p><img src="{{repo.owner.avatar_url}}" /></p>
+              <div class="content truncate">
+                <p class="title">{{repo.name}}</p>
+                <p [innerHTML]="(repo.description || 'None') | truncate : 40" ></p>
+                <p>Owner: {{repo.owner.login}}</p>
+              </div>
+
+            </div>
+
+            <div class="outGoing">
+              <a href="{{repo.html_url}}" target="_blank">
+                <i class="material-icons">info</i>
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+
+        <div [hidden]="isLoading" class="col s12 noResults" *ngIf="repos.length === 0">
+          <p>No Repositories found.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+<div class="search-results"
+     infiniteScroll
+     [infiniteScrollDistance]="2"
+     [infiniteScrollThrottle]="300"
+     (scrolled)="getMoreRepos(lastId)">
+</div>

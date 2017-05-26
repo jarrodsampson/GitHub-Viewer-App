@@ -1,0 +1,132 @@
+<div parallax [config]="{parallaxInitVal: -100, parallaxRatio: -7.3}" class="bannerDetails"></div>
+
+<div class="row">
+  <div class="col s12">
+    <button (click)="goBack()" class="waves-effect waves-light btn black">Go Back</button>
+  </div>
+</div>
+
+
+<div class="max-width">
+
+  <div class="row">
+    <div class="col s12">
+
+      <div class="col s12">
+        <h2>{{orgDetails.name}}</h2>
+      </div>
+
+      <div class="col s12 m6">
+        <p><img class="mainImage" src="{{orgDetails.avatar_url}}" /></p>
+      </div>
+      <div class="col s12 m6">
+
+        <p>{{orgDetails.description || "No Bio"}}</p>
+        <p>Hometown:&nbsp;{{orgDetails.location || "No Hometown"}}</p>
+        <p>Repos:&nbsp;{{orgDetails.public_repos}}</p>
+
+        <p>Company:&nbsp;{{orgDetails.company || "No Company"}}</p>
+        <p>Blog:&nbsp;<a href="{{orgDetails.blog}}" target="_blank">{{orgDetails.blog}}</a></p>
+        <p>Email:&nbsp;{{orgDetails.email || "No E-Mail Address"}}</p>
+        <p>Created:&nbsp;{{orgDetails.created_at | amTimeAgo}}</p>
+
+        <p><a href="{{orgDetails.html_url}}" target="_blank">Full Profile</a></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col s12">
+
+    <div class="col s12">
+      <ul class="tabs">
+        <li class="tab col s6"><a class="active" href="#members">Members</a></li>
+        <li class="tab col s6"><a href="#repos">Repositories</a></li>
+      </ul>
+    </div>
+
+    <div id="members" class="col s12">
+      <div class="memberListData center-align">
+        <div class="col s12 m6 l4" *ngFor="let member of members; let i = index" (click)="memberDetails(member)">
+
+          <div class="card hoverable">
+            <div class="card-content">
+
+              <p>
+                <img src="{{member.avatar_url}}" />
+              </p>
+              <div class="content">
+                <h4>{{member.login}}</h4>
+              </div>
+
+
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col s12 noResults" *ngIf="members.length === 0">
+          <p>No Members found.</p>
+        </div>
+
+        <div [hidden]="hideButton" class="col s12 center-align" *ngIf="members.length > 0">
+          <p>
+            <button
+              class="waves-effect waves-light btn amber darken-2"
+              (mouseover)="onLoadMoreMembers(organization, memberPage, members)"
+              (click)="onLoadMoreMembers(organization, memberPage, members)">Load More Members
+            </button>
+          </p>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div id="repos" class="col s12">
+      <div class="repoListData">
+        <div class="col s12 m12 l6" *ngFor="let repo of repos; let i = index">
+
+          <div class="card hoverable">
+            <div class="card-content" (click)="repoDetails(repo)">
+
+              <p><img src="{{repo.owner.avatar_url}}" /></p>
+              <div class="content truncate">
+                <p class="title">{{repo.name}}</p>
+                <p class="truncate" [innerHTML]="(repo.description || 'None') | truncate : 40" ></p>
+                <p>Created: {{repo.created_at | amTimeAgo}}</p>
+              </div>
+
+            </div>
+
+            <div class="outGoing">
+              <a href="{{repo.html_url}}" target="_blank">
+                <i class="material-icons">menu</i>
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col s12 noResults" *ngIf="repos.length === 0">
+          <p>No Repos found.</p>
+        </div>
+
+        <div [hidden]="hideButton" class="col s12 center-align" *ngIf="repos.length > 0">
+          <p>
+            <button
+              class="waves-effect waves-light btn amber darken-2"
+              (mouseover)="onLoadMoreRepos(organization, repoPage, repos)"
+              (click)="onLoadMoreRepos(organization, repoPage, repos)">Load More Repos
+            </button>
+          </p>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>

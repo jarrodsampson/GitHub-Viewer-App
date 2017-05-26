@@ -1,0 +1,33 @@
+<div parallax [config]="{parallaxInitVal: -100, parallaxRatio: -7.3}" class="bannerEmoji"></div>
+
+<div class="row">
+  <div class="col s12">
+    <h3>
+      Supported Emojis
+    </h3>
+    <p [hidden]="isLoading"><em>{{emojisLength}} Emojis</em></p>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col s12 center-align">
+    <div class="emojiContainerBox">
+      <div class="" *ngFor="let key of emojis | values; let i = index">
+        <div class="col s12 m4 l1 center-align emojiImageBox" [hidden]="i >= numberE" *ngIf="i < numberE">
+            <img class="" src="{{key}}" />
+        </div>
+      </div>
+      <p>
+        <button [hidden]="isLoading"
+          class="waves-effect waves-light btn amber darken-2"
+          (mouseover)="loadMoreEmojis()"
+          (click)="loadMoreEmojis()">Load More Emojis</button>
+      </p>
+
+      <div [hidden]="isLoading" class="col s12 noResults" *ngIf="emojisLength === 0">
+        <p>No Emojis found.</p>
+      </div>
+    </div>
+  </div>
+</div>

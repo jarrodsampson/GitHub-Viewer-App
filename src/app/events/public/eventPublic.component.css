@@ -1,0 +1,19 @@
+.card .card-content {
+  padding: 2em;
+  border-radius: 0 0 2px 2px;
+  min-height:400px;
+  max-height:400px;
+}
+
+
+.card .card-content img{
+  max-width:200px;
+  min-width:200px;
+  border-radius: 50%;
+  margin-bottom:1em;
+}
+
+
+.sha {
+  font-size:7pt;
+}

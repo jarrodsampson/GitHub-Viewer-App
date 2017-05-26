@@ -1,0 +1,190 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Git App</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="assets/libs/css/materialize.min.css">
+  <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="assets/libs/css/owl.carousel.min.css" />
+  <link rel="stylesheet" href="assets/libs/css/owl.theme.default.min.css" />
+  <link rel="stylesheet" href="assets/libs/css/swipebox.css" />
+  <link rel="shortcut icon" type="image/png" href="assets/images/logo.png">
+  <style>
+    body {
+      background: rgba(236, 240, 241,1.0);
+    }
+
+    .brand-logo img {
+      max-width:60px;
+      margin-left:0.2em;
+      padding:5px;
+    }
+
+    .loader {
+      position:absolute;
+      top:40%;
+      left:50%;
+      width:100px;
+      margin-left:0;
+    }
+
+    .scroll-top {
+      position: fixed;
+      bottom: 1em;
+      right: 1em;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      width: 60px;
+      height: 60px;
+      padding: 0 0 0 11px;
+      display: none;
+      z-index: 9999;
+    }
+    .scroll-top i {
+      color: white;
+      font-size: 44pt;
+    }
+
+    .wrap {
+      min-height:700px;
+    }
+
+    .title-text {
+      position: absolute;
+      left: 2.5em;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body id="top">
+
+  <div class="wrap">
+    <app-root>
+
+      <div class="loader preloader-wrapper big active">
+        <div class="spinner-layer spinner-yellow-only">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+        </div>
+      </div>
+
+    </app-root>
+  </div>
+
+
+  <footer class="page-footer black">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">GIT Viewer App</h5>
+          <p class="grey-text text-lighten-4">A Mini Viewer of the GitHub Application for source code, organizations, repositories, and users.</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">About The Developer</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="//github.com/planlodge" target="_blank">GitHub</a></li>
+            <li><a class="grey-text text-lighten-3" href="//www.linkedin.com/in/jarrodsampson/" target="_blank">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright blue-grey darken-3">
+      <div class="container">
+        © 2017 Planlodge
+        <a class="grey-text text-lighten-4 right" href="//planlodge.com" target="_blank">Portfolio</a>
+      </div>
+    </div>
+
+
+    <a class="topScroll scroll-top tooltipped" data-position="left" data-tooltip="Back to Top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+
+  </footer>
+
+  <!-- about modal -->
+
+  <div id="aboutModal" class="modal">
+    <div class="modal-content">
+      <h4>GIT Viewer App</h4>
+      <p>A Mini Viewer of the GitHub Application for source code, organizations, repositories, and users.</p>
+      <div>
+        <p><em><strong>Users</strong></em></p>
+        <ul>
+          <li>
+            <p>View and Search Users and their contributed content on GitHub.</p>
+          </li>
+          <li>
+            <p>See Recent Commits made by users along with the repo and their user profile.</p>
+          </li>
+          <li>
+            <p>See All Organizations and Subscriptions that user has.</p>
+          </li>
+          <li>
+            <p>Check out the users followers and see their content as well.</p>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <p><em><strong>Events</strong></em></p>
+        <ul>
+          <li>
+            <p>View the most Recent Events made by active users on the website.</p>
+          </li>
+          <li>
+            <p>See Pull requests, issues, commits, and organization updates.</p>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <p><em><strong>Repositories</strong></em></p>
+        <ul>
+          <li>
+            <p>Search and View all the repositories on this application.</p>
+          </li>
+          <li>
+            <p>Get all commit history for each repository.</p>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <p><em><strong>Organizations</strong></em></p>
+        <ul>
+          <li>
+            <p>View all the organizations listed publicly on GitHub.</p>
+          </li>
+          <li>
+            <p>See all members of those organizations and their content contributed.</p>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <p><em><strong>Emojis</strong></em></p>
+        <ul>
+          <li>
+            <p>See the Entire Collection of accepted Emojis on GitHub</p>
+          </li>
+        </ul>
+      </div>
+      <p>Version 1 Made By Jarrod Sampson</p>
+    </div>
+    <div class="modal-footer">
+      <a class=" modal-action modal-close waves-effect waves-green btn-flat">Good To Go</a>
+    </div>
+  </div>
+
+  <script src="assets/libs/js/jquery.min.js"></script>
+  <script src="assets/libs/js/materialize.min.js"></script>
+  <script src="assets/libs/js/headroom.js"></script>
+  <script src="assets/libs/js/jquery.swipebox.min.js"></script>
+  <script src="assets/libs/js/main.js"></script>
+<script type="text/javascript" src="inline.bundle.js"></script><script type="text/javascript" src="polyfills.bundle.js"></script><script type="text/javascript" src="styles.bundle.js"></script><script type="text/javascript" src="vendor.bundle.js"></script><script type="text/javascript" src="main.bundle.js"></script></body>
+</html>

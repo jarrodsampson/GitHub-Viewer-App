@@ -1,0 +1,118 @@
+.bannerDetails {
+  width:100%;
+  height:400px;
+  background:url('../../assets/images/emoji.jpg') top center fixed;
+  background-size:cover;
+  position: relative;
+}
+
+.item {
+  margin:1em;
+}
+.item img {
+  max-width:100%;
+}
+
+.usersListDataC .card .card-content img{
+  max-width:200px;
+  min-width:200px;
+  border-radius: 50%;
+  margin: auto;
+}
+
+
+.title {
+  font-weight: bold;
+  font-size: 14pt;
+}
+
+.max-width {
+  max-width:1000px;
+  margin:auto;
+}
+
+.organizationsListData img {
+  max-width:100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80px;
+}
+
+.organizationsListData .content {
+  position: absolute;
+  top: 2em;
+  left: 7em;
+}
+
+.organizationsListData .card {
+  position: relative;
+  margin:1em;
+  cursor:pointer;
+}
+.organizationsListData .card .card-content {
+  padding: 0;
+  border-radius: 0 0 2px 2px;
+  min-height:80px;
+}
+
+.organizationsListData .card .card-content img {
+  float:left;
+}
+
+.eventsList .card .card-content {
+  padding: 2em;
+  border-radius: 0 0 2px 2px;
+  min-height:400px;
+  max-height:400px;
+}
+
+
+.eventsList .card .card-content img{
+  max-width:200px;
+  min-width:200px;
+  border-radius: 50%;
+  margin: auto;
+  margin-bottom:1em;
+}
+
+
+.eventsList .sha {
+  font-size:7pt;
+}
+
+.repoListData img {
+  max-width:100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80px;
+}
+
+.repoListData .content {
+  position: absolute;
+  top: 0.3em;
+  left: 6em;
+}
+
+.repoListData .card {
+  position: relative;
+  margin:1em;
+  cursor:pointer;
+}
+.repoListData .card .card-content {
+  padding: 0;
+  border-radius: 0 0 2px 2px;
+  min-height:80px;
+}
+
+.repoListData .card .card-content img {
+  float:left;
+}
+
+
+.outGoing {
+  position: absolute;
+  top: .5em;
+  right: 1em;
+}

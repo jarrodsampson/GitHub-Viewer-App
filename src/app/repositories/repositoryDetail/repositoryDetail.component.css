@@ -1,0 +1,23 @@
+.bannerDetails {
+  width:100%;
+  height:400px;
+  background:url('../../../assets/images/emoji.jpg') top center fixed;
+  background-size:cover;
+  position: relative;
+}
+
+.max-width {
+  max-width:1000px;
+  margin:auto;
+}
+
+.mainImage {
+  max-width: 100%;
+}
+
+.commitListData .card .card-content {
+  padding: 2em;
+  border-radius: 0 0 2px 2px;
+  min-height:300px;
+  max-height:300px;
+}

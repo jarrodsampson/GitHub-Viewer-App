@@ -1,0 +1,42 @@
+
+
+.title {
+  font-weight: bold;
+  font-size: 14pt;
+}
+
+.max-width {
+  max-width:1000px;
+  margin:auto;
+}
+
+.organizationsListData img {
+  max-width:100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80px;
+}
+
+.organizationsListData .content {
+  position: absolute;
+  top: 2em;
+  left: 7em;
+}
+
+.card {
+  position: relative;
+  margin:1em;
+  cursor:pointer;
+}
+.card .card-content {
+  padding: 0;
+  border-radius: 0 0 2px 2px;
+  min-height:80px;
+}
+
+.card .card-content img {
+  float:left;
+}
+
+

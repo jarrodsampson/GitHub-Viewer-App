@@ -1,0 +1,115 @@
+/* You can add global styles to this file, and also import other style files */
+
+nav ul a {
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+
+/* headroom css */
+
+.slide {
+  -webkit-transition: all .25s ease-in-out;
+  -moz-transition: all .25s ease-in-out;
+  -o-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out
+}
+.slide--reset {
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0)
+}
+.slide--up {
+  -webkit-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  transform: translateY(-100%)
+}
+
+.topScroll {
+  cursor:pointer;
+}
+
+.side-nav {
+  min-height: 1000px;
+}
+
+.centerScreen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 14pt;
+  width: 200px;
+  height: 40px;
+  margin-left: -100px;
+  margin-top: -20px;
+  text-align: center;
+}
+
+#sidenav-overlay {
+  z-index: 996;
+}
+
+@media(max-width:767px) {
+  .title-text {
+    display:none;
+  }
+}
+
+@media(max-width: 600px) {
+
+}
+
+.side-nav img {
+  max-width: 100%;
+  margin-bottom: -1.9em;
+}
+
+
+/* animations */
+
+.show{
+  opacity: 1 !important;
+}
+.step{
+  opacity: 0;
+  transition: .5s ease-in-out all;
+}
+
+.card {
+  cursor:pointer;
+}
+
+.modal {
+  width: 80%;
+}
+
+strong {
+  font-weight: 900;
+}
+
+.outGoing a .material-icons {
+  color: orange;
+}
+
+.tabs .tab a {
+  color: orange;
+}
+
+.tabs .tab a:hover, .tabs .tab a.active {
+  color: #000;
+}
+
+a {
+  color:orange;
+}
+
+.ngx-pagination .current {
+  background: orange !important;
+}
+
+.tabs .indicator {
+  background-color: orange;
+}
+
+nav {
+  background-color: #000;
+}

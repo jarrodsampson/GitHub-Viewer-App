@@ -1,0 +1,49 @@
+
+<div class="row">
+  <div class="col s12">
+    <h3>Organizations</h3>
+  </div>
+</div>
+
+
+<div class="max-width">
+
+  <div class="row">
+    <div class="col s12 m12 l12">
+
+      <div class="organizationsListData">
+
+        <div class="col s12 m6 l4" *ngFor="let org of organizations; let i = index">
+          <div class="card hoverable">
+              <div class="card-content" (click)="orgDetails(org)">
+
+                <p><img src="{{org.avatar_url}}" /></p>
+                <div class="content">
+                  <p class="title" [innerHTML]="org.login | truncate : 9" ></p>
+                </div>
+
+              </div>
+
+          </div>
+        </div>
+
+        <div [hidden]="isLoading" class="col s12 noResults" *ngIf="organizations.length === 0">
+          <p>No Organizations found.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+</div>
+
+
+
+<div class="search-results"
+     infiniteScroll
+     [infiniteScrollDistance]="2"
+     [infiniteScrollThrottle]="300"
+     (scrolled)="getMoreOrgs(lastId)">
+</div>

@@ -1,0 +1,23 @@
+
+
+.emojiImageBox {
+  min-height: 150px;
+}
+
+.emojiImageBox img {
+
+}
+
+
+.emojiContainerBox {
+  min-height:300px;
+}
+
+
+.bannerEmoji {
+  width:100%;
+  height:400px;
+  background:url('../../assets/images/emoji.jpg') top center fixed;
+  background-size:cover;
+  position: relative;
+}

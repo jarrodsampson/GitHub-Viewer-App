@@ -1,0 +1,27 @@
+.boxError {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  margin-left: -300px;
+  height: 350px;
+  margin-top: -185px;
+  background: rgba(0,0,0,0.7);
+  border-radius: 10px;
+  color:white;
+}
+
+.boxError p {
+  font-size: 14pt;
+  font-family: helvetica, sans-serif;
+}
+
+.backBg {
+  background: rgba(255,255,255,0.7);
+  width:100%;
+  height:100%;
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:-1;
+}

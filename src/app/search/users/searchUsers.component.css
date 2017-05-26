@@ -1,0 +1,14 @@
+
+.card .card-content {
+  padding: 2em;
+  border-radius: 0 0 2px 2px;
+  min-height:300px;
+  max-height:300px;
+}
+
+
+.card .card-content img{
+  max-width:200px;
+  min-width:200px;
+  border-radius: 50%;
+}

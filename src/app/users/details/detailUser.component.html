@@ -1,0 +1,202 @@
+<div parallax [config]="{parallaxInitVal: -100, parallaxRatio: -7.3}" class="bannerDetails"></div>
+
+<div class="row">
+  <div class="col s12">
+    <button (click)="goBack()" class="waves-effect waves-light btn black">Go Back</button>
+  </div>
+</div>
+
+<div class="max-width">
+
+  <div class="row">
+    <div class="col s12">
+
+      <div class="col s12">
+        <h2>{{userDetail.name}}</h2>
+      </div>
+
+      <div class="col s12 m6">
+        <p><img class="mainImage" src="{{userDetail.avatar_url}}" /></p>
+      </div>
+      <div class="col s12 m6">
+        <p>{{userDetail.bio || "No Bio"}}</p>
+        <p>Followers:&nbsp;{{userDetail.followers}}</p>
+        <p>Following:&nbsp;{{userDetail.following}}</p>
+        <p>Hometown:&nbsp;{{userDetail.location || "No Hometown"}}</p>
+        <p>Repos:&nbsp;{{userDetail.public_repos}}</p>
+        <p>Company:&nbsp;{{userDetail.company || "No Company"}}</p>
+        <p>Blog:&nbsp;<a href="{{userDetail.blog}}" target="_blank">{{userDetail.blog}}</a></p>
+        <p>Email:&nbsp;{{userDetail.email || "No E-Mail Address"}}</p>
+        <p>Created:&nbsp;{{userDetail.created_at | amTimeAgo}}</p>
+
+        <p><a href="{{userDetail.html_url}}" target="_blank">Full Profile</a></p>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+  <div class="row">
+    <div class="col s12">
+
+      <div class="col s12">
+        <ul class="tabs">
+          <li class="tab col s3"><a href="#repos">Repos</a></li>
+          <li class="tab col s3"><a href="#followers">Followers</a></li>
+          <li class="tab col s3"><a class="active" href="#subscriptions">Subscriptions</a></li>
+          <li class="tab col s3"><a href="#organizations">Organizations</a></li>
+        </ul>
+      </div>
+
+      <div id="repos" class="col s12">
+
+        <div class="repoListData">
+          <div class="col s12 m12 l6" *ngFor="let repo of repos; let i = index">
+
+
+            <div class="card hoverable">
+              <div class="card-content" (click)="repoDetails(repo)">
+
+                <p><img src="{{repo.owner.avatar_url}}" /></p>
+                <div class="content truncate">
+                  <p class="title">{{repo.name}}</p>
+                  <p class="truncate" [innerHTML]="(repo.description || 'None') | truncate : 40" ></p>
+                  <p>Created: {{repo.created_at | amTimeAgo}}</p>
+                </div>
+
+              </div>
+
+              <div class="outGoing">
+                <a href="{{repo.html_url}}" target="_blank">
+                  <i class="material-icons">info</i>
+                </a>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="col s12 noResults" *ngIf="repos.length === 0">
+            <p>No Repos found.</p>
+          </div>
+
+          <div [hidden]="hideButton" class="col s12 center-align" *ngIf="repos.length > 0">
+            <p>
+              <button
+                class="waves-effect waves-light btn amber darken-2"
+                (mouseover)="onLoadMoreRepos(userDetail.login, repoPage, repos)"
+                (click)="onLoadMoreRepos(userDetail.login, repoPage, repos)">Load More Repositories
+              </button>
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div id="followers" class="col s12 followersDataList">
+
+        <div class="row center-align">
+          <div class="col s12 m12 l12 center-align">
+            <div class="col s12 m6 l4" *ngFor="let follower of followers" (click)="followerDetails(follower)">
+
+              <div class="card hoverable">
+                <div class="card-content">
+
+                  <p>
+                    <img src="{{follower.avatar_url}}" />
+                  </p>
+                  <div class="content">
+                    <h4 class="truncate">{{follower.login}}</h4>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div [hidden]="hideButton" class="col s12 center-align" *ngIf="followers.length > 0">
+          <p>
+            <button
+                    class="waves-effect waves-light btn amber darken-2"
+                    (mouseover)="onLoadMore(userDetail.login, page, followers)"
+                    (click)="onLoadMore(userDetail.login, page, followers)">Load More Followers
+            </button>
+          </p>
+
+        </div>
+
+        <div class="col s12 noResults" *ngIf="followers.length === 0">
+          <p>No Followers found.</p>
+        </div>
+
+      </div>
+
+      <div id="subscriptions" class="col s12 subscriptionsDataList">
+
+        <div class="row">
+          <div class="col s12 m12 l12">
+
+            <div class="col s12 m6 l4" *ngFor="let subscription of subscriptions">
+
+              <div class="card hoverable">
+                <div class="card-content">
+
+
+                  <p class="title truncate">{{subscription.name}}</p>
+                  <p class="truncate" [innerHTML]="(subscription.description || 'None') | truncate : 40" ></p>
+
+                </div>
+
+                <div class="outGoing">
+                  <a href="{{subscription.html_url}}" target="_blank">
+                    <i class="material-icons">info</i>
+                  </a>
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="col s12 noResults" *ngIf="subscriptions.length === 0">
+              <p>No Subscriptions found.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="organizations" class="col s12 organizationsListData">
+
+        <div class="row">
+          <div class="col s12 m12 l12">
+
+            <div class="col s12 m6 l4" *ngFor="let org of orgs">
+
+              <div class="card hoverable">
+                <div class="card-content" (click)="orgDetails(org)">
+
+                  <p><img src="{{org.avatar_url}}" /></p>
+                  <div class="content">
+                    <p class="title" [innerHTML]="org.login | truncate : 9" ></p>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+            <div class="col s12 noResults" *ngIf="orgs.length === 0">
+              <p>No Organizations found.</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>

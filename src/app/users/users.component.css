@@ -1,0 +1,40 @@
+
+
+.userListData img {
+  max-width:100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80px;
+}
+
+.userListData .content {
+  position: absolute;
+  top: 1.5em;
+  left: 6em;
+}
+
+.card {
+  position: relative;
+  margin:1em;
+  cursor:pointer;
+}
+.card .card-content {
+  padding: 0;
+  border-radius: 0 0 2px 2px;
+  min-height:80px;
+}
+
+.card .card-content p {
+  font-size: 18pt;
+}
+
+.card .card-content img {
+  float:left;
+}
+
+
+.max-width {
+  max-width:1000px;
+  margin:auto;
+}
