@@ -5,7 +5,7 @@ A mini viewer of the GitHub application for source code, organizations, reposito
 [![Build Status](https://travis-ci.org/stevenbenner/jquery-powertip.svg?branch=master)](https://travis-ci.org/stevenbenner/jquery-powertip)
 ![License](https://img.shields.io/packagist/l/doctrine/orm.svg)
 
-![Image](https://github.com/planlodge/Place-Locator/blob/master/screen1.png?raw=true)
+![Image](https://github.com/planlodge/GitHub-Viewer-App/blob/master/screenV.png?raw=true)
 
 ## Description
 
