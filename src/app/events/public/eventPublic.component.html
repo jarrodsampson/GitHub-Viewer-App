@@ -19,9 +19,9 @@
           <div class="card hoverable">
             <div class="card-content">
 
-              <p><img src="{{event.actor.avatar_url}}" /></p>
+              <p><img class="quickSmallScale" src="{{event.actor.avatar_url}}" alt="{{event.repo.name}}" /></p>
               <div class="content">
-                <p>Repo: <span [innerHTML]="(event.repo.name) | truncate : 30"></span></p>
+                <strong><p [innerHTML]="(event.repo.name) | truncate : 30"></p></strong>
 
                 <div *ngIf="event.payload.action">
                   <p>Action: {{event.payload.action}}</p>

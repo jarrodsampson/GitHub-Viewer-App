@@ -1,23 +1,23 @@
-<div parallax [config]="{parallaxInitVal: -100, parallaxRatio: -7.3}" class="bannerDetails"></div>
-
-<div class="row">
-  <div class="col s12">
-    <button (click)="goBack()" class="waves-effect waves-light btn black">Go Back</button>
-  </div>
-</div>
-
 
 <div class="max-width">
 
   <div class="row">
     <div class="col s12">
 
+      <br /><br />
+
+      <div class="col s12">
+        <button (click)="goBack()" class="waves-effect waves-light btn black">Go Back</button>
+      </div>
+
+      <br />
+
       <div class="col s12">
         <h2>{{orgDetails.name}}</h2>
       </div>
 
       <div class="col s12 m6">
-        <p><img class="mainImage" src="{{orgDetails.avatar_url}}" /></p>
+        <p><img class="mainImage" src="{{orgDetails.avatar_url}}" alt="{{orgDetails.name}}" /></p>
       </div>
       <div class="col s12 m6">
 
@@ -42,12 +42,12 @@
 
     <div class="col s12">
       <ul class="tabs">
-        <li class="tab col s6"><a class="active" href="#members">Members</a></li>
-        <li class="tab col s6"><a href="#repos">Repositories</a></li>
+        <li class="tab col s6" (click)="openTab(0)"><a class="active" href="#members">Members</a></li>
+        <li class="tab col s6" (click)="openTab(1)"><a href="#repos">Repositories</a></li>
       </ul>
     </div>
 
-    <div id="members" class="col s12">
+    <div id="members" class="col s12" [hidden]="tabClosed0">
       <div class="memberListData center-align">
         <div class="col s12 m6 l4" *ngFor="let member of members; let i = index" (click)="memberDetails(member)">
 
@@ -55,7 +55,7 @@
             <div class="card-content">
 
               <p>
-                <img src="{{member.avatar_url}}" />
+                <img class="quickSmallScale" src="{{member.avatar_url}}" alt="{{member.login}}" />
               </p>
               <div class="content">
                 <h4>{{member.login}}</h4>
@@ -85,7 +85,7 @@
       </div>
     </div>
 
-    <div id="repos" class="col s12">
+    <div id="repos" class="col s12" [hidden]="tabClosed1">
       <div class="repoListData">
         <div class="col s12 m12 l6" *ngFor="let repo of repos; let i = index">
 

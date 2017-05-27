@@ -16,6 +16,7 @@ export class UsersComponent implements OnInit {
   search = {
     user: ""
   };
+  isLoading = true;
 
   constructor(private _apiService: APIService, private titleService: Title, private activatedRoute: ActivatedRoute, private router: Router) {
     this.titleService.setTitle( "Git App - Users" );
@@ -42,6 +43,7 @@ export class UsersComponent implements OnInit {
       err => console.error(err),
       () => {
         console.log("User data", this.usersList);
+        this.isLoading = false;
       }
     );
   }

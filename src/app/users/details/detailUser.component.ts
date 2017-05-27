@@ -10,7 +10,9 @@ import {Router, ActivatedRoute, Params} from '@angular/router';
 })
 export class DetailUserComponent implements OnInit {
 
-  userDetail = {};
+  userDetail = {
+    blog: ""
+  };
   userLogin = "";
   repos = [];
   followers = [];
@@ -20,6 +22,12 @@ export class DetailUserComponent implements OnInit {
   orgs = [];
   hideButton = false;
   tempArrayLength = 0;
+
+  // tabs
+  tabClosed0 = true;
+  tabClosed1 = true;
+  tabClosed2 = true;
+  tabClosed3 = true;
 
   constructor(private _apiService: APIService, private titleService: Title, private activatedRoute: ActivatedRoute, private router: Router) {
     this.titleService.setTitle( "Git App - Details" );
@@ -34,29 +42,34 @@ export class DetailUserComponent implements OnInit {
     });
 
     /*
-     Get the local categories list for google places
+     Get the user deets
      */
     this.getUserDetails(this.userLogin);
 
     /*
-     Get the local categories list for google places
+     Get user followers
      */
     this.getUserFollowers(this.userLogin, this.page);
 
     /*
-     Get the local categories list for google places
+     Get user subscriptions
      */
     this.getUserSubscriptions(this.userLogin);
 
     /*
-     Get the local categories list for google places
+     Get user organizations
      */
     this.getUserOrgs(this.userLogin);
 
     /*
-     Get the local categories list for google places
+     Get user repos
      */
     this.getUserRepos(this.userLogin, this.repoPage);
+
+    /*
+     Reset Tabs
+     */
+    this.initTabs();
   }
 
   getUserDetails(userLogin) {
@@ -157,30 +170,35 @@ export class DetailUserComponent implements OnInit {
     this.subscriptions = [];
     this.orgs = [];
     /*
-     Get the local categories list for google places
+     Get grab user deets
      */
     this.getUserDetails(this.userLogin);
 
     /*
-     Get the local categories list for google places
+     Get all followers
      */
     this.getUserFollowers(this.userLogin, this.page);
 
     /*
-     Get the local categories list for google places
+     Get user subscriptions
      */
     this.getUserSubscriptions(this.userLogin);
 
     /*
-     Get the local categories list for google places
+     Get user Organizations
      */
     this.getUserOrgs(this.userLogin);
 
     /*
-     Get the local categories list for google places
+     Get User Repos
      */
     this.getUserRepos(this.userLogin, this.repoPage);
+
     scrollTo(0,0);
+  }
+
+  repoDetails(repo) {
+    this.router.navigate(['./repositories/details/' + encodeURI(repo.full_name)]);
   }
 
   orgDetails(org) {
@@ -189,6 +207,37 @@ export class DetailUserComponent implements OnInit {
 
   goBack() {
     window.history.back();
+  }
+
+  initTabs() {
+    this.tabClosed0 = true;
+    this.tabClosed1 = true;
+    this.tabClosed2 = false;
+    this.tabClosed3 = true;
+  }
+
+  openTab(tabNumber) {
+    if (tabNumber == 0) {
+      this.tabClosed0 = false;
+      this.tabClosed1 = true;
+      this.tabClosed2 = true;
+      this.tabClosed3 = true;
+    } else if (tabNumber == 1) {
+      this.tabClosed0 = true;
+      this.tabClosed1 = false;
+      this.tabClosed2 = true;
+      this.tabClosed3 = true;
+    } else if (tabNumber == 2) {
+      this.tabClosed0 = true;
+      this.tabClosed1 = true;
+      this.tabClosed2 = false;
+      this.tabClosed3 = true;
+    } else if (tabNumber == 3) {
+      this.tabClosed0 = true;
+      this.tabClosed1 = true;
+      this.tabClosed2 = true;
+      this.tabClosed3 = false;
+    }
   }
 
 }

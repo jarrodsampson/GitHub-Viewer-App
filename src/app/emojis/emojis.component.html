@@ -15,7 +15,7 @@
     <div class="emojiContainerBox">
       <div class="" *ngFor="let key of emojis | values; let i = index">
         <div class="col s12 m4 l1 center-align emojiImageBox" [hidden]="i >= numberE" *ngIf="i < numberE">
-            <img class="" src="{{key}}" />
+            <img class="quickScale materialboxed" src="{{key}}" />
         </div>
       </div>
       <p>

@@ -1,31 +1,35 @@
-<div parallax [config]="{parallaxInitVal: -100, parallaxRatio: -7.3}" class="bannerDetails"></div>
 
-<div class="row">
-  <div class="col s12">
-    <button (click)="goBack()" class="waves-effect waves-light btn black">Go Back</button>
-  </div>
-</div>
 
 <div class="max-width">
 
   <div class="row">
     <div class="col s12">
 
+      <br /><br />
+
+
+      <div class="col s12">
+        <button (click)="goBack()" class="waves-effect waves-light btn black">Go Back</button>
+      </div>
+
+      <br />
+
       <div class="col s12">
         <h2>{{userDetail.name}}</h2>
       </div>
 
       <div class="col s12 m6">
-        <p><img class="mainImage" src="{{userDetail.avatar_url}}" /></p>
+        <p><img class="mainImage floaterDown" src="{{userDetail.avatar_url}}" /></p>
       </div>
-      <div class="col s12 m6">
+      <div class="col s12 m6 sideInfo">
         <p>{{userDetail.bio || "No Bio"}}</p>
         <p>Followers:&nbsp;{{userDetail.followers}}</p>
         <p>Following:&nbsp;{{userDetail.following}}</p>
         <p>Hometown:&nbsp;{{userDetail.location || "No Hometown"}}</p>
         <p>Repos:&nbsp;{{userDetail.public_repos}}</p>
         <p>Company:&nbsp;{{userDetail.company || "No Company"}}</p>
-        <p>Blog:&nbsp;<a href="{{userDetail.blog}}" target="_blank">{{userDetail.blog}}</a></p>
+        <p *ngIf="userDetail.blog.length > 0">Blog:&nbsp;<a href="{{userDetail.blog}}" target="_blank">{{userDetail.blog}}</a></p>
+        <p *ngIf="userDetail.blog.length <= 0">Blog:&nbsp;No Website</p>
         <p>Email:&nbsp;{{userDetail.email || "No E-Mail Address"}}</p>
         <p>Created:&nbsp;{{userDetail.created_at | amTimeAgo}}</p>
 
@@ -42,14 +46,14 @@
 
       <div class="col s12">
         <ul class="tabs">
-          <li class="tab col s3"><a href="#repos">Repos</a></li>
-          <li class="tab col s3"><a href="#followers">Followers</a></li>
-          <li class="tab col s3"><a class="active" href="#subscriptions">Subscriptions</a></li>
-          <li class="tab col s3"><a href="#organizations">Organizations</a></li>
+          <li class="tab col s3" (click)="openTab(0)"><a>Repos</a></li>
+          <li class="tab col s3" (click)="openTab(1)"><a>Followers</a></li>
+          <li class="tab col s3" (click)="openTab(2)"><a class="active">Subscriptions</a></li>
+          <li class="tab col s3" (click)="openTab(3)"><a>Organizations</a></li>
         </ul>
       </div>
 
-      <div id="repos" class="col s12">
+      <div id="repos" class="col s12" [hidden]="tabClosed0">
 
         <div class="repoListData">
           <div class="col s12 m12 l6" *ngFor="let repo of repos; let i = index">
@@ -67,7 +71,7 @@
 
               </div>
 
-              <div class="outGoing">
+              <div class="outGoing quickScale">
                 <a href="{{repo.html_url}}" target="_blank">
                   <i class="material-icons">info</i>
                 </a>
@@ -96,7 +100,7 @@
 
       </div>
 
-      <div id="followers" class="col s12 followersDataList">
+      <div id="followers" class="col s12 followersDataList" [hidden]="tabClosed1">
 
         <div class="row center-align">
           <div class="col s12 m12 l12 center-align">
@@ -106,7 +110,7 @@
                 <div class="card-content">
 
                   <p>
-                    <img src="{{follower.avatar_url}}" />
+                    <img class="quickSmallScale" src="{{follower.avatar_url}}" alt="{{follower.login}}" />
                   </p>
                   <div class="content">
                     <h4 class="truncate">{{follower.login}}</h4>
@@ -115,6 +119,10 @@
                 </div>
               </div>
 
+            </div>
+
+            <div class="col s12 noResults" *ngIf="followers.length === 0">
+              <p>No Followers found.</p>
             </div>
           </div>
         </div>
@@ -130,18 +138,14 @@
 
         </div>
 
-        <div class="col s12 noResults" *ngIf="followers.length === 0">
-          <p>No Followers found.</p>
-        </div>
-
       </div>
 
-      <div id="subscriptions" class="col s12 subscriptionsDataList">
+      <div id="subscriptions" class="col s12 subscriptionsDataList" [hidden]="tabClosed2">
 
         <div class="row">
-          <div class="col s12 m12 l12">
+          <div class="col s12 m12 l12 center-align">
 
-            <div class="col s12 m6 l4" *ngFor="let subscription of subscriptions">
+            <div class="col s12 m6 l4" *ngFor="let subscription of subscriptions" (click)="repoDetails(subscription)">
 
               <div class="card hoverable">
                 <div class="card-content">
@@ -152,7 +156,7 @@
 
                 </div>
 
-                <div class="outGoing">
+                <div class="outGoing quickScale">
                   <a href="{{subscription.html_url}}" target="_blank">
                     <i class="material-icons">info</i>
                   </a>
@@ -170,10 +174,10 @@
 
       </div>
 
-      <div id="organizations" class="col s12 organizationsListData">
+      <div id="organizations" class="col s12 organizationsListData" [hidden]="tabClosed3">
 
         <div class="row">
-          <div class="col s12 m12 l12">
+          <div class="col s12 m12 l12 center-align">
 
             <div class="col s12 m6 l4" *ngFor="let org of orgs">
 

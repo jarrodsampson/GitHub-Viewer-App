@@ -17,6 +17,10 @@ export class OrganizationDetailComponent implements OnInit {
   repos = [];
   repoPage = 1;
 
+  // tabs
+  tabClosed0 = true;
+  tabClosed1 = true;
+
   constructor(private _apiService: APIService, private titleService: Title, private activatedRoute: ActivatedRoute, private router: Router) {
     this.titleService.setTitle( "Git App - Details" );
   }
@@ -45,6 +49,11 @@ export class OrganizationDetailComponent implements OnInit {
      */
     this.getOrgRepos(this.organization, this.memberPage);
 
+
+    /*
+     Reset Tabs
+     */
+    this.initTabs();
   }
 
   getOrgDetails(org) {
@@ -108,6 +117,21 @@ export class OrganizationDetailComponent implements OnInit {
 
   goBack() {
     window.history.back();
+  }
+
+  initTabs() {
+    this.tabClosed0 = false;
+    this.tabClosed1 = true;
+  }
+
+  openTab(tabNumber) {
+    if (tabNumber == 0) {
+      this.tabClosed0 = false;
+      this.tabClosed1 = true;
+    } else if (tabNumber == 1) {
+      this.tabClosed0 = true;
+      this.tabClosed1 = false;
+    }
   }
 
 }

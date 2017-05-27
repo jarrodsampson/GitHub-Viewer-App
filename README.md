@@ -1,35 +1,28 @@
-# GitHub Viewer App
+# GitHub
 
-A mini viewer of the GitHub application for source code, organizations, repositories, and users. Built on Angular 4 and MaterializeCSS. Designed by [planlodge](http://planlodge.com).
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 
-[![Build Status](https://travis-ci.org/stevenbenner/jquery-powertip.svg?branch=master)](https://travis-ci.org/stevenbenner/jquery-powertip)
-![License](https://img.shields.io/packagist/l/doctrine/orm.svg)
+## Development server
 
-![Image](https://github.com/planlodge/GitHub-Viewer-App/blob/master/screenV.png?raw=true)
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Description
+## Code scaffolding
 
-> A mini viewer of the GitHub application for source code, organizations, repositories, and users. Built on Angular 4 and MaterializeCSS. View and search users and their contributed content on GitHub, see recent commits made by users along with the repo and their user profile.  See all organizations and subscriptions that user has, check out the users followers and see their content as well.
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
 
-## Features
+## Build
 
-### Users
-- View and Search Users and their contributed content on GitHub.
-- See Recent Commits made by users along with the repo and their user profile.
-- See All Organizations and Subscriptions that user has.
-- Check out the users followers and see their content as well.
-### Events
-- View the most Recent Events made by active users on the website.
-- See Pull requests, issues, commits, and organization updates.
-### Repositories
-- Search and View all the repositories on this application.
-- Get commit history for each repository.
-### Organizations
-- View all the organizations listed publicly on GitHub.
-- See all members of those organizations and their content contributed.
-### Emojis
-- See the Entire Collection of accepted Emojis on GitHub
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-## License
+## Running unit tests
 
-GitHub Viewer App is licensed under the [MIT license](http://opensource.org/licenses/MIT).
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Before running the tests make sure you are serving the app via `ng serve`.
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

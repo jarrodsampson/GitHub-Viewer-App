@@ -11,18 +11,6 @@ var customScripts = {
     });
 
   },
-  wowScrolls: function () {
-
-    /* ---------------------------------------------- /*
-     * WOW Animation When You Scroll
-     /* ---------------------------------------------- */
-
-    wow = new WOW({
-      mobile: false
-    });
-    wow.init();
-
-  },
   headroom: function () {
 
     var header = document.querySelector("#header");
@@ -73,8 +61,6 @@ var customScripts = {
       });
     });
 
-    // activate menu dropdown
-    $(".dropdown-button").dropdown();
 
     // menu side bar
 
@@ -103,10 +89,7 @@ var customScripts = {
   init: function () {
     customScripts.intro();
     customScripts.scrollTop();
-    //customScripts.wowScrolls();
     customScripts.headroom();
-    //customScripts.swipeItBox();
-    //customScripts.introTop();
 
   }
 };
