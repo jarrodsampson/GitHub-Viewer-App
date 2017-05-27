@@ -40,6 +40,8 @@ A mini viewer of the GitHub application for source code, organizations, reposito
 ### Emojis
 - See the Entire Collection of accepted Emojis on GitHub
 
+![Image](https://github.com/planlodge/GitHub-Viewer-App/blob/master/screenC.png?raw=true)
+
 ## License
 
 GitHub Viewer App is licensed under the [MIT license](http://opensource.org/licenses/MIT).
