@@ -13,6 +13,8 @@ A mini viewer of the GitHub application for source code, organizations, reposito
 
 ![Image](https://github.com/planlodge/GitHub-Viewer-App/blob/master/screenC.png?raw=true)
 
+## Updates and News
+
 ### Version 1.1 Updates
 - RouterLink active Tab added
 - Materialize Tabs Now working
