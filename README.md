@@ -13,6 +13,12 @@ A mini viewer of the GitHub application for source code, organizations, reposito
 
 ![Image](https://github.com/planlodge/GitHub-Viewer-App/blob/master/screenC.png?raw=true)
 
+### Version 1.1 Updates
+- RouterLink active Tab added
+- Materialize Tabs Now working
+- CSS3 Animations for Floating and Scaling
+- Feedback on Hovered Images and Emojis
+
 ## Features
 
 ### Users
