@@ -40,7 +40,7 @@ A mini viewer of the GitHub application for source code, organizations, reposito
 ### Emojis
 - See the Entire Collection of accepted Emojis on GitHub
 
-![Image](https://github.com/planlodge/GitHub-Viewer-App/blob/master/screenC.png?raw=true)
+![Image](https://github.com/planlodge/GitHub-Viewer-App/blob/master/screenT.png?raw=true)
 
 ## License
 
