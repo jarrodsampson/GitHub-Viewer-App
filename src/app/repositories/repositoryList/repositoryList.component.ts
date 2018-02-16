@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { APIService } from '../../services/APIService';
-import { Title } from '@angular/platform-browser';
-import {Router, ActivatedRoute} from '@angular/router';
-import 'rxjs/Rx';
+import { Component, OnInit }    from '@angular/core'
+import { APIService }           from '../../services/APIService'
+import { Title }                from '@angular/platform-browser'
+import {Router, ActivatedRoute} from '@angular/router'
+import                               'rxjs/Rx'
 
 @Component({
   selector: 'app-root',
@@ -11,15 +11,15 @@ import 'rxjs/Rx';
 })
 export class RepositoryListComponent implements OnInit {
 
-  repos = [];
-  lastId = 0;
+  repos = []
+  lastId = 0
   search = {
     repo: ""
-  };
-  isLoading = true;
+  }
+  isLoading = true
 
   constructor(private _apiService: APIService, private titleService: Title, private router: Router) {
-    this.titleService.setTitle( "Git App - Repositories" );
+    this.titleService.setTitle( "Git App - Repositories" )
   }
 
   ngOnInit() {
@@ -27,7 +27,7 @@ export class RepositoryListComponent implements OnInit {
     /*
      Get all repositories
      */
-    this.getRepos(this.lastId);
+    this.getRepos(this.lastId)
 
   }
 
@@ -37,28 +37,28 @@ export class RepositoryListComponent implements OnInit {
      */
     this._apiService.getRepositories(lastId).subscribe(
       data => {
-        this.repos = this.repos.concat(data);
-        this.lastId = this.repos[this.repos.length - 1].id;
+        this.repos = this.repos.concat(data)
+        this.lastId = this.repos[this.repos.length - 1].id
       },
       err => console.error(err),
       () => {
-        console.log("Repo data", this.repos);
-        this.isLoading = false;
+        console.log("Repo data", this.repos)
+        this.isLoading = false
       }
-    );
+    )
   }
 
   getMoreRepos(lastId) {
-    this.getRepos(this.lastId);
+    this.getRepos(this.lastId)
   }
 
   repoDetails(repo) {
-    this.router.navigate(['./repositories/details/' + encodeURI(repo.full_name)]);
+    this.router.navigate(['./repositories/details/' + encodeURI(repo.full_name)])
   }
 
   searchRepo(search) {
     if (search.repo.length > 1) {
-      this.router.navigate(['./search/repositories/' + encodeURI(search.repo)]);
+      this.router.navigate(['./search/repositories/' + encodeURI(search.repo)])
     }
   }
 

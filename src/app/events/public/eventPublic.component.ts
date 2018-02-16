@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { APIService } from '../../services/APIService';
-import { Title } from '@angular/platform-browser';
+import { Component, OnInit }    from '@angular/core'
+import { APIService }           from '../../services/APIService'
+import { Title }                from '@angular/platform-browser'
 
 
 @Component({
@@ -10,13 +10,13 @@ import { Title } from '@angular/platform-browser';
 })
 export class EventPublicComponent implements OnInit {
 
-  events = [];
-  serviceRequest = {};
-  isLoading = true;
-  modalCommits = [];
+  events = []
+  serviceRequest = {}
+  isLoading = true
+  modalCommits = []
 
   constructor(private _apiService: APIService, private titleService: Title) {
-    this.titleService.setTitle( "Git App - Public Events" );
+    this.titleService.setTitle( "Git App - Public Events" )
   }
 
   ngOnInit() {
@@ -24,7 +24,7 @@ export class EventPublicComponent implements OnInit {
     /*
      Get all public events
      */
-    this.fetchPublicEvents();
+    this.fetchPublicEvents()
 
   }
 
@@ -34,24 +34,24 @@ export class EventPublicComponent implements OnInit {
      */
     this.serviceRequest = this._apiService.getPublicEvents().subscribe(
       data => {
-        this.events = this.events.concat(data);
+        this.events = this.events.concat(data)
       },
       err => console.error(err),
       () => {
-        console.log("Events data", this.events);
-        //this.subscribeToData();
-        this.isLoading = false;
+        console.log("Events data", this.events)
+        //this.subscribeToData()
+        this.isLoading = false
       }
-    );
+    )
   }
 
   goBack() {
-    window.history.back();
+    window.history.back()
   }
 
   getCommits(commits) {
-    console.log(commits);
-    this.modalCommits = commits;
+    console.log(commits)
+    this.modalCommits = commits
   }
 
 }

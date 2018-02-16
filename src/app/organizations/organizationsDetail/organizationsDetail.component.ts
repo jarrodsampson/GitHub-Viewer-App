@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { APIService } from '../../services/APIService';
-import { Title } from '@angular/platform-browser';
-import {Router, ActivatedRoute, Params} from '@angular/router';
+import { Component, OnInit }            from '@angular/core'
+import { APIService }                   from '../../services/APIService'
+import { Title }                        from '@angular/platform-browser'
+import {Router, ActivatedRoute, Params} from '@angular/router'
 
 @Component({
   selector: 'app-root',
@@ -10,50 +10,50 @@ import {Router, ActivatedRoute, Params} from '@angular/router';
 })
 export class OrganizationDetailComponent implements OnInit {
 
-  organization = "";
-  orgDetails = {};
-  members = [];
-  memberPage = 1;
-  repos = [];
-  repoPage = 1;
+  organization = ""
+  orgDetails = {}
+  members = []
+  memberPage = 1
+  repos = []
+  repoPage = 1
 
   // tabs
-  tabClosed0 = true;
-  tabClosed1 = true;
+  tabClosed0 = true
+  tabClosed1 = true
 
   constructor(private _apiService: APIService, private titleService: Title, private activatedRoute: ActivatedRoute, private router: Router) {
-    this.titleService.setTitle( "Git App - Details" );
+    this.titleService.setTitle( "Git App - Details" )
   }
 
   ngOnInit() {
 
     this.activatedRoute.params.subscribe((params: Params) => {
-      this.organization = params['org'];
-      this.titleService.setTitle( "Git App - " + this.organization + ' Details' );
-      console.log(this.organization);
-    });
+      this.organization = params['org']
+      this.titleService.setTitle( "Git App - " + this.organization + ' Details' )
+      console.log(this.organization)
+    })
 
 
     /*
      Get Organization Details
      */
-    this.getOrgDetails(this.organization);
+    this.getOrgDetails(this.organization)
 
     /*
      Get Organization members
      */
-    this.getOrgMembers(this.organization, this.memberPage);
+    this.getOrgMembers(this.organization, this.memberPage)
 
     /*
      Get Organization Repos
      */
-    this.getOrgRepos(this.organization, this.memberPage);
+    this.getOrgRepos(this.organization, this.memberPage)
 
 
     /*
      Reset Tabs
      */
-    this.initTabs();
+    this.initTabs()
   }
 
   getOrgDetails(org) {
@@ -62,13 +62,13 @@ export class OrganizationDetailComponent implements OnInit {
      */
     this._apiService.getOrgDetails(org).subscribe(
       data => {
-        this.orgDetails = data;
+        this.orgDetails = data
       },
       err => console.error(err),
       () => {
-        console.log("Organization data", this.orgDetails);
+        console.log("Organization data", this.orgDetails)
       }
-    );
+    )
   }
 
   getOrgMembers(org, page) {
@@ -77,14 +77,14 @@ export class OrganizationDetailComponent implements OnInit {
      */
     this._apiService.getOrgMembers(org, page).subscribe(
       data => {
-        this.members = this.members.concat(data);
-        this.memberPage += 1;
+        this.members = this.members.concat(data)
+        this.memberPage += 1
       },
       err => console.error(err),
       () => {
-        console.log("Member data", this.members);
+        console.log("Member data", this.members)
       }
-    );
+    )
   }
 
   getOrgRepos(org, page) {
@@ -93,44 +93,44 @@ export class OrganizationDetailComponent implements OnInit {
      */
     this._apiService.getOrgRepos(org, page).subscribe(
       data => {
-        this.repos = this.repos.concat(data);
-        this.repoPage += 1;
+        this.repos = this.repos.concat(data)
+        this.repoPage += 1
       },
       err => console.error(err),
       () => {
-        console.log("Repo data", this.repos);
+        console.log("Repo data", this.repos)
       }
-    );
+    )
   }
 
   onLoadMoreMembers(org, page) {
-    this.getOrgMembers(org, page);
+    this.getOrgMembers(org, page)
   }
 
   onLoadMoreRepos(org, page) {
-    this.getOrgRepos(org, page);
+    this.getOrgRepos(org, page)
   }
 
   memberDetails(member) {
-    this.router.navigate(['./user/details/' + encodeURI(member.login)]);
+    this.router.navigate(['./user/details/' + encodeURI(member.login)])
   }
 
   goBack() {
-    window.history.back();
+    window.history.back()
   }
 
   initTabs() {
-    this.tabClosed0 = false;
-    this.tabClosed1 = true;
+    this.tabClosed0 = false
+    this.tabClosed1 = true
   }
 
   openTab(tabNumber) {
     if (tabNumber == 0) {
-      this.tabClosed0 = false;
-      this.tabClosed1 = true;
+      this.tabClosed0 = false
+      this.tabClosed1 = true
     } else if (tabNumber == 1) {
-      this.tabClosed0 = true;
-      this.tabClosed1 = false;
+      this.tabClosed0 = true
+      this.tabClosed1 = false
     }
   }
 

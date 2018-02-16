@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { APIService } from '../services/APIService';
-import { Title } from '@angular/platform-browser';
-import {Router, ActivatedRoute, Params} from '@angular/router';
-import 'rxjs/Rx';
+import { Component, OnInit }            from '@angular/core'
+import { APIService }                   from '../services/APIService'
+import { Title }                        from '@angular/platform-browser'
+import {Router, ActivatedRoute, Params} from '@angular/router'
+import                                       'rxjs/Rx'
 
 @Component({
   selector: 'app-root',
@@ -11,15 +11,15 @@ import 'rxjs/Rx';
 })
 export class UsersComponent implements OnInit {
 
-  usersList = [];
-  lastId = 0;
+  usersList = []
+  lastId = 0
   search = {
     user: ""
-  };
-  isLoading = true;
+  }
+  isLoading = true
 
   constructor(private _apiService: APIService, private titleService: Title, private activatedRoute: ActivatedRoute, private router: Router) {
-    this.titleService.setTitle( "Git App - Users" );
+    this.titleService.setTitle( "Git App - Users" )
   }
 
   ngOnInit() {
@@ -27,7 +27,7 @@ export class UsersComponent implements OnInit {
     /*
      Get more users from last id
      */
-    this.getMoreUsers(this.lastId);
+    this.getMoreUsers(this.lastId)
 
   }
 
@@ -37,25 +37,25 @@ export class UsersComponent implements OnInit {
      */
     this._apiService.getUsers(lastUser).subscribe(
       data => {
-        this.usersList = this.usersList.concat(data);
-        this.lastId = this.usersList[this.usersList.length - 1].id;
+        this.usersList = this.usersList.concat(data)
+        this.lastId = this.usersList[this.usersList.length - 1].id
       },
       err => console.error(err),
       () => {
-        console.log("User data", this.usersList);
-        this.isLoading = false;
+        console.log("User data", this.usersList)
+        this.isLoading = false
       }
-    );
+    )
   }
 
   searchUser(search) {
     if (search.user.length > 1) {
-      this.router.navigate(['./search/users/' + encodeURI(search.user)]);
+      this.router.navigate(['./search/users/' + encodeURI(search.user)])
     }
   }
 
   userDetails(user) {
-    this.router.navigate(['./user/details/' + encodeURI(user.login)]);
+    this.router.navigate(['./user/details/' + encodeURI(user.login)])
   }
 
 }

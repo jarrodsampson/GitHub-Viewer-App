@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { APIService } from '../services/APIService';
-import { Title } from '@angular/platform-browser';
+import { Component, OnInit } from '@angular/core'
+import { APIService }        from '../services/APIService'
+import { Title }             from '@angular/platform-browser'
 
 
 @Component({
@@ -10,13 +10,13 @@ import { Title } from '@angular/platform-browser';
 })
 export class EmojisComponent implements OnInit {
 
-  emojis = [];
-  numberE = 24;
-  emojisLength = 0;
-  isLoading = true;
+  emojis = []
+  numberE = 24
+  emojisLength = 0
+  isLoading = true
 
   constructor(private _apiService: APIService, private titleService: Title) {
-    this.titleService.setTitle( "Git App - Emojis" );
+    this.titleService.setTitle( "Git App - Emojis" )
   }
 
   ngOnInit() {
@@ -24,7 +24,7 @@ export class EmojisComponent implements OnInit {
     /*
      Get all emojis
      */
-    this.fetchEmojis();
+    this.fetchEmojis()
 
   }
 
@@ -34,22 +34,22 @@ export class EmojisComponent implements OnInit {
      */
     this._apiService.getEmojis().subscribe(
       data => {
-        this.emojis = data;
-        this.emojisLength = Object.keys(this.emojis).length;
+        this.emojis = data
+        this.emojisLength = Object.keys(this.emojis).length
       },
       err => console.error(err),
       () => {
-        console.log("Emoji data", this.emojis);
-        this.isLoading = false;
+        console.log("Emoji data", this.emojis)
+        this.isLoading = false
       }
-    );
+    )
   }
 
   /*
     Load More emojis in increments
    */
   loadMoreEmojis() {
-    this.numberE += 24;
+    this.numberE += 24
   }
 
 }

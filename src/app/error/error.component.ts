@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { Component } from '@angular/core'
+import { Title }     from '@angular/platform-browser'
 
 @Component({
   selector: 'app-root',
@@ -9,11 +9,11 @@ import { Title } from '@angular/platform-browser';
 export class ErrorComponent {
 
   constructor(private titleService: Title) {
-    this.titleService.setTitle( "Git App - 404 Page Not Found" );
+    this.titleService.setTitle( "Git App - 404 Page Not Found" )
   }
 
   goBack() {
-    window.history.back();
+    window.history.back()
   }
 
 }
